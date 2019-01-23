@@ -55,6 +55,11 @@ if "%MODE%"=="%CONF%" (
     CALL :Ip %command%
     goto :LOOP
   )
+  echo %command% | findstr /I "int" >nul
+  if not errorlevel 1 (
+    CALL :Interface %command%
+    goto :LOOP
+  )
 
 )
 
