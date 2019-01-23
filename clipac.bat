@@ -21,11 +21,15 @@ SET MARKER=                                                                ^^^^
 
 
 :LOOP
-setlocal enabledelayedexpansion
+rem setlocal enabledelayedexpansion
 set command=nullptr
 set /p command="%PS1%%MODE%"
+CALL :Trim %command%
 
 if "%command%"=="nullptr" (
+  goto :LOOP
+)
+if "%first:~0,1%"=="!" (
   goto :LOOP
 )
 
@@ -172,6 +176,11 @@ if not "%str%"=="" (
   set /a len=%len%+1
   goto :STRLOOP
 )
+exit /b
+
+
+:Trim
+set first=%*
 exit /b
 
 
