@@ -6,6 +6,17 @@ if errorlevel 1 (
   exit /b
 )
 
+if "%1"=="/h" (
+  CALL :Help
+  exit /b
+) else if "%1"=="-h" (
+  CALL :Help
+  exit /b
+) else if "%1"=="--help" (
+  CALL :Help
+  exit /b
+)
+
 REM init
 title clipac
 SET PS1=clipac
@@ -32,6 +43,7 @@ if "%command%"=="nullptr" (
 if "%first:~0,1%"=="!" (
   goto :LOOP
 )
+
 
 if "%MODE%"=="%CONF%" (
   echo %command% | findstr /I "show" >nul
@@ -97,14 +109,14 @@ exit /b
 
 
 :Interface
-if "%MODE%"=="%GLOCONF%" (
-  netsh interface ip show interface | findstr /I "%2" >nul
+rem if "%MODE%"=="%GLOCONF%" (
+  netsh interface ip show interface | findstr /I %2 >nul
   if not errorlevel 1 (
     SET INTERFACE=%2
     SET MODE=%INTCONF:)=^)%
     exit /b
   )
-)
+rem )
 CALL :Error %*
 exit /b
 
@@ -148,20 +160,20 @@ echo %2 | findstr /I "add" >nul
 if not errorlevel 1 (
   echo %3 | findstr /I "dhcp" >nul
   if not errorlevel 1 (
-  netsh interface ip set address %INTERFACE% dhcp
-  if not errorlevel 1 (
-    echo success!
-  )
-  exit /b
+  netsh interface ip set address "%INTERFACE%" dhcp
+    if not errorlevel 1 (
+      echo success^!
+    )
+    exit /b
   ) else (
-  set IPADDR=%3
-  set NETMASK=%4
-  set GATEWAY=%5
-  netsh interface ip set address %INTERFACE% static %3 %4 %5
-  if not errorlevel 1 (
-    echo success!
-  )
-  exit /b
+    set IPADDR=%3
+    set NETMASK=%4
+    set GATEWAY=%5
+    netsh interface ip set address "%INTERFACE%" static %3 %4 %5
+    if not errorlevel 1 (
+      echo success^!
+    )
+    exit /b
   )
 )
 CALL :Error %*
@@ -186,8 +198,25 @@ exit /b
 
 :Help
 echo Usage:
-echo     ToDo
 echo     This is help.
+echo.
+echo.
+echo  [ Example ]
+echo.
+echo ^# show interface
+echo.
+echo Idx     Met         MTU          State                Name
+echo ---  ----------  ----------  ------------  ---------------------------
+echo   6          40        1500  connected     Wi-Fi
+echo  10           5        1500  disconnected  Ethernet
+echo.
+echo clipac^# conf t
+echo clipac(config^)^# int Ethernet
+echo clipac(config-if^)^# ip address 10.0.0.1 255.255.255.0 10.0.0.254
+echo clipac(config-if^)^# end
+echo clipac^#
+echo clipac^# quit
+echo.
 exit /b
 
 
@@ -197,6 +226,7 @@ exit /b
 
 
 :Error
+setlocal enabledelayedexpansion
 set len=0
 CALL :STRLEN %*
 set argslen=%len%
