@@ -19,7 +19,7 @@ if "%1"=="/h" (
 
 REM init
 title clipac
-SET PS1=clipac
+SET HOSTNAME=clipac
 SET CONF=#^ 
 SET GLOCONF=(config)#^ 
 SET INTCONF=(config-if)#^ 
@@ -34,7 +34,7 @@ SET MARKER=                                                                ^^^^
 :LOOP
 rem setlocal enabledelayedexpansion
 set command=nullptr
-set /p command="%PS1%%MODE%"
+set /p command="%HOSTNAME%%MODE%"
 CALL :Trim %command%
 
 if "%command%"=="nullptr" (
@@ -50,6 +50,11 @@ if "%MODE%"=="%CONF%" (
   if not errorlevel 1 (
     CALL :Show %command%
     goto :LOOP
+  )
+
+  echo %command% | findstr /I "logout" >nul
+  if not errorlevel 1 (
+    title & exit /b
   )
 
 ) else if "%MODE%"=="%GLOCONF%" (
@@ -104,7 +109,7 @@ goto :LOOP
 
 
 :Hostname
-SET PS1=%2
+SET HOSTNAME=%2
 exit /b
 
 
@@ -237,7 +242,7 @@ if "%MODE%"=="%CONF%" (
 ) else (
   set len=13
 )
-CALL :STRLEN %PS1%
+CALL :STRLEN %HOSTNAME%
 CALL :STRLEN %command%
 set /a len=%len%-%argslen%+2
 set len=!MARKER:~-%len%!
