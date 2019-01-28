@@ -13,17 +13,17 @@ Run as administrator `clipac.bat`
 * Show interface  
 `clipac# show interface`  
 * Show IP Address  
-`clipac# show ip  
+`clipac# show ip`  
 * Show IP Address for each interfaces  
-`clipac# show ip  interface [interface]  
+`clipac# show ip  interface [interface]`  
 * Change static IP Address  
-`clipac(config-if)# ip address [ip address][(subnet)][(gateway)]`
+`clipac(config-if)# ip address [ip address][(subnet)][(gateway)]`  
 * Change IP Address by DHCP  
-`clipac(config-if)# ip address dhcp`
+`clipac(config-if)# ip address dhcp`  
 * Enable / Unable interface  
 `clipac(config-if)# [(no)] shutdown`  
 * Exit this app  
-All mode `quit`
+All mode `quit`  
 * Show help  
 All mode `help`  
 * Change hostname[<sup>[2]</sup>](#note-2)  
@@ -39,7 +39,7 @@ A comment is any line beginning with an exclamation("!") point.
 |User EXEC |Begin a session with your switch. |clipac> |Enter **logout** or **quit**. |
 |Privileged EXEC |While in user EXEC mode, enter the **enable** command. |clipac# |Enter **disable** to exit. |
 |Global configuration |While in privileged EXEC mode, enter the **configure** command. |clipac(config)# |To exit to privileged EXEC mode, enter **exit** or **end**. |
-|Interface configuration |While in global configuration mode, enter the **interface** command (with a specific interface). |clipac(config-if)#  |To exit to global configuration mode, enter **exit**. To return to privileged EXEC mode, enter **end**. |
+|Interface configuration |While in global configuration mode, enter the **interface** command (with a specific interface). |<div style="white-space:nowrap;">clipac(config-if)# </div> |To exit to global configuration mode, enter **exit**. To return to privileged EXEC mode, enter **end**. |
 
 
 ## Note
