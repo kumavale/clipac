@@ -12,6 +12,10 @@ Run as administrator `clipac.bat`
 ## Usage
 * Show interface  
 `clipac# show interface`  
+* Show IP Address  
+`clipac# show ip  
+* Show IP Address for each interfaces  
+`clipac# show ip  interface [interface]  
 * Change static IP Address  
 `clipac(config-if)# ip address [ip address][(subnet)][(gateway)]`
 * Change IP Address by DHCP  
