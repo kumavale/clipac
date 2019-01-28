@@ -26,6 +26,7 @@ Command list
  ip address [ip address][(subnet)][(gateway)]
  ip address dhcp
  interface [interface]
+ [(no)] shutdown
  exit
  end
 
