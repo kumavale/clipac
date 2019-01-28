@@ -132,7 +132,7 @@ if not errorlevel 1 (
 
 
 CALL :Error %command%
-CALL :Usage
+rem CALL :Usage
 
 goto :LOOP
 
@@ -324,3 +324,4 @@ rem echo %%^*:%*
 rem echo argslen:%argslen%
 rem echo len:%len%
 echo Invalid input detected at '^^' marker.
+echo.
