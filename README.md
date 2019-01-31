@@ -39,11 +39,12 @@ A comment is any line beginning with an exclamation("!") point.
 |User EXEC |Begin a session with your switch. |clipac> |Enter **logout** or **quit**. |
 |Privileged EXEC |While in user EXEC mode, enter the **enable** command. |clipac# |Enter **disable** to exit. |
 |Global configuration |While in privileged EXEC mode, enter the **configure** command. |clipac(config)# |To exit to privileged EXEC mode, enter **exit** or **end**. |
-|Interface configuration |While in global configuration mode, enter the **interface** command (with a specific interface). |<div style="white-space:nowrap;">clipac(config-if)# </div> |To exit to global configuration mode, enter **exit**. To return to privileged EXEC mode, enter **end**. |
+|Interface configuration |While in global configuration mode, enter the **interface** command (with a specific interface). |<div style="white-space:nowrap;"><nobr>clipac(config-if)# </nobr></div> |To exit to global configuration mode, enter **exit**. To return to privileged EXEC mode, enter **end**. |
 
 
 ## Note
 <a name="note-1"></a>
-1. Unimplemented
+1. Unimplemented  
 <a name="note-2"></a>
-2. Will not be saved.
+2. Will not be saved.  
+3. Still many bugs...  

@@ -144,7 +144,9 @@ exit /b
 
 :Interface
 rem if "%MODE%"=="%GLOCONF%" (
-  netsh interface ip show interface | findstr /I /R "\<%2\>" >nul
+  echo %2
+  rem netsh interface ip show interface | findstr /I /R "\<%2\>" >nul
+  netsh interface ip dump | findstr /I /R "\<\"%2\"\>" >nul
   if not errorlevel 1 (
     SET INTERFACE=%2
     SET MODE=%INTCONF:)=^)%
@@ -277,7 +279,7 @@ echo.
 echo.
 echo  [ Example ]
 echo.
-echo ^# show interface
+echo clipac^# show interface
 echo.
 echo Idx     Met         MTU          State                Name
 echo ---  ----------  ----------  ------------  ---------------------------
