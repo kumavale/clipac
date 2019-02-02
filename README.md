@@ -5,8 +5,8 @@ Cisco Like IP Address Changer
 ## Run
 * Windows  
 Run as administrator `clipac.bat`  
-* Linux [<sup>[1]</sup>](#note-1)  
-`sudo ./clipac.sh`
+* <del>Linux</del> [<sup>[1]</sup>](#note-1)  
+<del>`sudo ./clipac.sh`</del>
 
 
 ## Usage
