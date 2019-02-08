@@ -144,7 +144,7 @@ exit /b
 
 :Interface
 rem if "%MODE%"=="%GLOCONF%" (
-  echo %2
+rem  echo %2
   rem netsh interface ip show interface | findstr /I /R "\<%2\>" >nul
   netsh interface ip dump | findstr /I /R "\<\"%2\"\>" >nul
   if not errorlevel 1 (

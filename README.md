@@ -42,6 +42,10 @@ A comment is any line beginning with an exclamation("!") point.
 |Interface configuration |While in global configuration mode, enter the **interface** command (with a specific interface). |clipac(config&#8722;if)#  |To exit to global configuration mode, enter **exit**. To return to privileged EXEC mode, enter **end**. |
 
 
+## License
+MIT
+
+
 ## Note
 <a name="note-1"></a>
 1. Unimplemented  
