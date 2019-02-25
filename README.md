@@ -1,4 +1,5 @@
 # clipac
+![stable](https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E%E7%92%B0%E5%A2%83-failing-critical.svg)  
 Cisco Like IP Address Changer
 ![demo](https://user-images.githubusercontent.com/29778890/51610456-2cc5e900-1f60-11e9-954f-cf12156c8dfb.gif)
 
