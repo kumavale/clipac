@@ -31,6 +31,8 @@ All mode `help`
 `clipac(config)# hostname [hostname]`  
 * Comment  
 A comment is any line beginning with an exclamation("!") point.  
+* Ping  
+`clipac# ping [ip address]`  
 
 
 
