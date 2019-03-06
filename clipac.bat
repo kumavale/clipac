@@ -1,4 +1,4 @@
-@echo off
+echo off
 
 openfiles >nul
 if errorlevel 1 (
@@ -61,6 +61,11 @@ if "%MODE%"=="%USER%" (
     CALL :Show %command%
     goto :LOOP
   )
+  echo %command% | findstr /I /R "\<p\> \<pi\> \<pin\> \<ping\>" >nul
+  if not errorlevel 1 (
+    CALL :Ping %command%
+    goto :LOOP
+  )
 
 
 ) else if "%MODE%"=="%CONF%" (
@@ -72,6 +77,11 @@ if "%MODE%"=="%USER%" (
   echo %command% | findstr /I /R "\<disa\> \<disab\> \<disabl\> \<disable\>" >nul
   if not errorlevel 1 (
     set MODE=%USER:>=^>%
+    goto :LOOP
+  )
+  echo %command% | findstr /I /R "\<p\> \<pi\> \<pin\> \<ping\>" >nul
+  if not errorlevel 1 (
+    CALL :Ping %command%
     goto :LOOP
   )
 
@@ -209,6 +219,15 @@ echo %* | findstr /I /R^
  "\<in\> \<int\> \<inte\> \<inter\> \<interf\> \<interfa\> \<interfac\> \<interface\>" >nul
 if not errorlevel 1 (
   netsh interface ip show interface
+  exit /b
+)
+CALL :Error %2 %3 %4 %5 %6 %7 %8 %9
+exit /b
+
+
+:Ping
+ping %2 %3 %4 %5 %6 %7 %8 %9
+if not errorlevel 1 (
   exit /b
 )
 CALL :Error %2 %3 %4 %5 %6 %7 %8 %9
